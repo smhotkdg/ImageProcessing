@@ -6,3 +6,6 @@ python -m pip install --upgrade pip
 
 # opencv 설치
 pip install opencv-python
+
+File not found "executable":
+C:/Users/user/AppData/Local/arduino/sketches/84C52795EC3CECD07267421350ABE58B/sketch_sep22a.ino.elf
