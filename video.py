@@ -21,6 +21,8 @@ while True:
         break
     # 현재 프레임을 화면에 표시
     cv2.imshow('CAPTURE', frame)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
+    cv2.imshow('gray',gray)
     # 키 입력 대기
     key = cv2.waitKey(delay) & 0xFF
     # 's' 키 → 현재 프레임을 이미지로 저장
