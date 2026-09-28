@@ -1,5 +1,16 @@
 from pathlib import Path
+from unittest import result
 import cv2
+def drawImg(img):
+    result = img.copy()
+    cv2.line(result, (30, 60), (220, 60), (255, 0, 0), 3)
+    cv2.rectangle(result, (80, 90), (1000, 600), (0, 255, 0), 3)
+    cv2.circle(result, (640, 360), 30, (0, 0, 255), -1)
+
+    cv2.putText(result, 'test', (30, 40),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8,
+                (255, 255, 255), 2, cv2.LINE_AA)
+    return result
 
 SOURCE = str('road.mp4')
 # 동영상 파일 열기
@@ -23,7 +34,10 @@ while True:
         break
     # 현재 프레임을 화면에 표시
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('CAPTURE', gray)    
+    result = drawImg(frame)
+    result = cv2.resize(result, (640, 360))
+    #cv2.imshow('FRAME', frame)
+    cv2.imshow('CAPTURE', result)
     # 키 입력 대기
     key = cv2.waitKey(delay) & 0xFF
     # 's' 키 → 현재 프레임을 이미지로 저장
