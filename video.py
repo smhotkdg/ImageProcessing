@@ -43,6 +43,8 @@ while True:
     # 's' 키 → 현재 프레임을 이미지로 저장
     if key == ord('s'):
         print('saved:', cv2.imwrite(str(target), gray))
+    if key == ord('r'):
+        print('saved:', cv2.imwrite(str(target), result))
     # 'q' 키 → 프로그램 종료
     if key == ord('q'):
         break
