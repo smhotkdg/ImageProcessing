@@ -1,6 +1,7 @@
 from pathlib import Path
 from unittest import result
 import cv2
+
 def drawImg(img):
     result = img.copy()
     cv2.line(result, (30, 60), (220, 60), (255, 0, 0), 3)
@@ -35,11 +36,19 @@ while True:
     # 현재 프레임을 화면에 표시
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     result = drawImg(frame)
-    result = cv2.resize(result, (640, 360))
+    
+    #print(gray.min(), gray.max(), gray.mean())           
+    gray = cv2.resize(gray, (640, 360))
     #cv2.imshow('FRAME', frame)
-    cv2.imshow('CAPTURE', result)
+    dark   = cv2.subtract(gray, 100)
+    bright = cv2.add(gray, 100)
+
+    cv2.imshow('CAPTURE', gray)
+    cv2.imshow('dark', dark)
+    cv2.imshow('bright', bright)
     # 키 입력 대기
     key = cv2.waitKey(delay) & 0xFF
+    
     # 's' 키 → 현재 프레임을 이미지로 저장
     if key == ord('s'):
         print('saved:', cv2.imwrite(str(target), gray))
