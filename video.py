@@ -39,13 +39,20 @@ while True:
     
     #print(gray.min(), gray.max(), gray.mean())           
     gray = cv2.resize(gray, (640, 360))
-    #cv2.imshow('FRAME', frame)
-    dark   = cv2.subtract(gray, 100)
-    bright = cv2.add(gray, 100)
+    #threshold_value = gray.mean()
+    threshold_value = gray.mean()
+    print(gray.min(), gray.max(), gray.mean())   
+    _, binary = cv2.threshold(gray, threshold_value, 255, cv2.THRESH_BINARY)
+    tv, otsu = cv2.threshold(gray, 0, 255,
+                         cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    a = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                              cv2.THRESH_BINARY_INV, 51, 8)
 
+    
     cv2.imshow('CAPTURE', gray)
-    cv2.imshow('dark', dark)
-    cv2.imshow('bright', bright)
+    cv2.imshow('threshold', binary)
+    cv2.imshow('otsu', otsu)
+    cv2.imshow('adaptive', a)
     # 키 입력 대기
     key = cv2.waitKey(delay) & 0xFF
     
