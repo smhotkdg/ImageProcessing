@@ -8,6 +8,8 @@ eq = cv2.equalizeHist(gray)
 eq_hist = cv2.calcHist([eq], [0], None, [256], [0, 256])
 
 cv2.imwrite('road_eq.jpg', eq)
+cv2.imshow('Original', gray)
+cv2.imshow('Equalized', eq)
 plt.plot(eq_hist, color='r')
 plt.xlim([0, 256])
 plt.show()
