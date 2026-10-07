@@ -40,12 +40,17 @@ while True:
     #print(gray.min(), gray.max(), gray.mean())           
     gray = cv2.resize(gray, (640, 360))
     #cv2.imshow('FRAME', frame)
-    dark   = cv2.subtract(gray, 100)
-    bright = cv2.add(gray, 100)
+
+    small = gray[140:185, 300:345]        
+
+    for flag in [cv2.INTER_NEAREST, cv2.INTER_LINEAR,
+             cv2.INTER_CUBIC,   cv2.INTER_AREA]:
+        up = cv2.resize(small, (360, 360), interpolation=flag)
+        cv2.imshow(f'flag = {flag}', up)
+    
 
     cv2.imshow('CAPTURE', gray)
-    cv2.imshow('dark', dark)
-    cv2.imshow('bright', bright)
+    
     # 키 입력 대기
     key = cv2.waitKey(delay) & 0xFF
     
