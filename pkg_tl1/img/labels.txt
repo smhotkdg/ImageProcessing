@@ -1,0 +1,11 @@
+tl_day_red.png	red	(398, 66)	[179, 146, 203]	[0, 1, 178, 179]
+tl_day_yellow.png	yellow	(398, 94)	[25, 140, 209]	[23, 24, 25, 26, 27]
+tl_day_green.png	green	(398, 121)	[70, 124, 204]	[69, 70, 71, 72]
+tl_night.png	red	(398, 66)	[0, 191, 248]	[0, 1, 179]
+tl_dusk.png	red	(398, 66)	[1, 174, 228]	[0, 1, 179]
+tl_rain.png	red	(398, 66)	[0, 135, 198]	[0, 179]
+tl_blur.png	red	(398, 66)	[0, 148, 193]	[0, 1, 179]
+tl_far.png	green	(398, 88)	[69, 123, 205]	[68, 69, 70, 71]
+tl_none.png	none	None	None	None
+
+tl_demo.avi	red 1-36 / green 37-78 / yellow 79-96 / red 97-120
